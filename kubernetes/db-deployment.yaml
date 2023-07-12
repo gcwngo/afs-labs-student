@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: db-deployment
   namespace: gngo
   labels:
-    app: app
+    app: db
 spec:
   replicas: 1
   strategy:
@@ -12,17 +12,17 @@ spec:
   minReadySeconds: 20
   selector:
     matchLabels:
-      app: app
+      app: db
   template:
     metadata:
       labels:
-        app: app
+        app: db
     spec:
       containers:
       - envFrom:
         - secretRef:
             name: db-secret
-        name: app-deployment
-        image: registry.dev.afsmtddso.com/gngo-harbor-project/app@sha256:5b97dd079be350617a5cd1a7253598202857eb402b022af370b5e673c171b91d
+        name: db-deployment
+        image: registry.dev.afsmtddso.com/gngo-harbor-project/db@sha256:ca1c60b2c4f26c8c0c0257859f3d241ab9b18f934248905553bca27def96f0cf
         ports:
-        - containerPort: 5000
+        - containerPort: 5432
