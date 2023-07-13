@@ -1,5 +1,5 @@
 --
--- Gordon Ngo
+-- Gordon Ngo AFS DevSecOps Bootcamp 2023 Lab
 --
 --
 -- PostgreSQL database dump
